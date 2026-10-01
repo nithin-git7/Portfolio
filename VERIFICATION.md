@@ -22,3 +22,7 @@ Not verified: deployed website, third-party profile/link availability, email del
 The earlier ClearPath image controls were removed at the owner's request. Their earlier verification above is historical, not a description of the current interface.
 
 The current revision builds and passes npm run verify. The local browser confirms the college-project stories expand, the model-evaluation note expands, and the role-interest statement renders. Expanded story typography was visually inspected. GitHub project links are intentionally absent because the owner has none. Individual contributions, real screenshots, and measured evaluations remain unverified and are not fabricated.
+
+# October 1 UI refinement
+
+Production build and artifact verification passed. Browser computer-use review covered desktop project rows in daylight, an expanded project story, the personal shelf and welcome in lamplight, and mobile widths of 390 and 320 pixels. Document scroll width matched client width at both mobile sizes (375 and 305 pixels with the browser scrollbar). No browser console errors were observed. The preview route returned HTTP 200. Screenshot: visual-review-october.png. These changes are local; no new push or deployment was performed.

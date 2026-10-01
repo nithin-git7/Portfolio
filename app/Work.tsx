@@ -29,7 +29,7 @@ function ProjectDetails({ project }: { project: typeof projects[number] }) {
   const id = useId();
   return (
     <details className="project-reading">
-      <summary aria-controls={id}>Read the project story</summary>
+      <summary aria-controls={id}>Read the project story<span className="disclosure-hint" aria-hidden="true">Open / close</span></summary>
       <div id={id}>
         <h4>The question</h4><p>{project.question}</p>
         <h4>The approach</h4><p>{project.approach}</p>
@@ -52,12 +52,17 @@ export function Work() {
       <div className="college-projects">
         {projects.map(project => (
           <article className="college-project" key={project.name}>
+            <div className="project-overview">
+            <p className="project-context">College project</p>
             <h3>{project.name}</h3>
             <p>{project.summary}</p>
+            </div>
+            <div className="project-content">
             <ul>{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
             <p className="project-tools">{project.tools}</p>
             {project.name === 'MediAI' && <p className="project-note">An academic prototype, not a clinical diagnostic tool.</p>}
             <ProjectDetails project={project} />
+            </div>
           </article>
         ))}
       </div>

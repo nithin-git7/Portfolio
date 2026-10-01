@@ -627,3 +627,40 @@ nav a { display:inline-flex; align-items:center; min-height:44px; }
 .engineering-notes details { border-top:1px solid var(--line); }
 .engineering-notes summary { min-height:44px; }
 .note-body { max-width:65ch; color:var(--muted); }
+
+/* Reading-room refinement: long stories have a comfortable measure,
+   while short project introductions remain easy to scan. */
+.college-projects { grid-template-columns:1fr; gap:40px; }
+.college-project { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; padding-top:30px; }
+.college-project .project-context { font-size:10px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:14px; }
+.college-project h3 { font-size:32px; max-width:23ch; }
+.project-content ul { margin-top:0; }
+.project-reading summary { display:flex; align-items:center; gap:12px; justify-content:space-between; }
+.project-reading summary::before { content:'+'; font-size:19px; font-weight:400; }
+.project-reading[open] summary::before { content:'−'; }
+.project-reading summary::-webkit-details-marker { display:none; }
+.disclosure-hint { margin-left:auto; color:var(--muted); font-size:10px; font-weight:400; }
+.project-reading[open]>div { padding:0 0 8px 20px; border-left:1px solid var(--line); }
+.project-reading p,.note-body p { font-size:14px; line-height:1.9; }
+.project-reading h4 { color:var(--ink); }
+.personal { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:56px; }
+.personal-intro p { color:var(--muted); font-size:14px; margin-top:20px; max-width:35ch; }
+.personal-intro .eyebrow { margin-bottom:16px; }
+.personal-shelf { margin:0; border-top:1px solid var(--line); }
+.personal-shelf>div { display:grid; grid-template-columns:95px 1fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); }
+.personal-shelf dt { font-family:Newsreader,Georgia,serif; font-size:23px; line-height:1.4; }
+.personal-shelf dd { margin:0; font-size:12px; color:var(--muted); }
+.personal .personal-invitation { grid-column:1/-1; font-size:12px; margin:28px 0 0; color:var(--muted); }
+a,button { transition:color 140ms ease,background-color 140ms ease,border-color 140ms ease; }
+.copy-button:hover { border-color:var(--accent); }
+@media(max-width:760px) {
+  .college-project,.personal { grid-template-columns:1fr; gap:22px; }
+  .college-projects { gap:32px; }
+  .college-project h3 { font-size:29px; max-width:28ch; }
+  .personal-intro p { max-width:48ch; margin-bottom:0; }
+  .personal .personal-invitation { margin-top:0; }
+}
+@media(max-width:360px) {
+  .disclosure-hint { display:none; }
+  .personal-shelf>div { grid-template-columns:80px 1fr; gap:12px; }
+}

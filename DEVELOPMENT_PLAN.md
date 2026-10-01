@@ -1,8 +1,10 @@
 # Personal website development plan
 
-Updated: 9 September 2026
+Updated: 1 October 2026
 
 ## Direction
+
+October refinement: preserve the existing paper-and-green identity. Present college projects as spacious reading rows with expandable stories; give cricket, books, music, and research a personal shelf rather than repeated generic cards. Keep completed deliverables separate from proposed evaluations. No fabricated personal anecdotes, project images, or metrics are added. The next credibility improvement is owner-provided screenshots and a precise contribution statement for each project, followed by a reproducible evaluation report. The next personal improvement is one owner-written book reflection, music recommendation, and cricket memory.
 
 A personal place that feels away from the internet: a small, welcoming notebook with time to read. Use Nithin's real work, portrait, cricket, books, music, and research. Keep the resume and contact easy to find. Avoid engagement counters, feeds, autoplay, tracking, attention-seeking animation, or invented personal stories.
 

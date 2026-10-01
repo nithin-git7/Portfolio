@@ -8,7 +8,9 @@ for (const id of ['main-content', 'work', 'research', 'about', 'contact']) {
   assert(html.includes(`id="${id}"`), `Missing navigation target ${id}`);
 }
 assert(!html.includes('opacity:0'), 'Static content must be visible without JavaScript');
-assert(html.includes('Cricket') && html.includes('Books &amp; music'), 'Personal interests are prerendered');
+for (const interest of ['Cricket', 'Books', 'Music', 'Research']) {
+  assert(html.includes(`<dt>${interest}</dt>`), `${interest} is prerendered in the personal shelf`);
+}
 const references = [...html.matchAll(/(?:src|href)="(\/Portfolio\/[^"#?]+)"/g)].map(match => match[1]);
 for (const reference of new Set(references)) {
   const file = resolve('dist', reference.replace('/Portfolio/', ''));
