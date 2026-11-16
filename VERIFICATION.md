@@ -26,3 +26,24 @@ The current revision builds and passes npm run verify. The local browser confirm
 # October 1 UI refinement
 
 Production build and artifact verification passed. Browser computer-use review covered desktop project rows in daylight, an expanded project story, the personal shelf and welcome in lamplight, and mobile widths of 390 and 320 pixels. Document scroll width matched client width at both mobile sizes (375 and 305 pixels with the browser scrollbar). No browser console errors were observed. The preview route returned HTTP 200. Screenshot: visual-review-october.png. These changes are local; no new push or deployment was performed.
+
+## 26 October 2026: clean personal preview
+
+- Replaced the hero slogan with Nithin's name, natural portrait, role, and direct work/resume links.
+- Simplified project rows, experience, interests, contact, and the selective-memory notebook.
+- Production build passes TypeScript, client bundle, prerendering, and static Pages synchronization.
+- Build verifier passes unique IDs, navigation, control targets, interests, truthful project/concept labels, local assets, PDF signature, contact, and output parity.
+- Browser inspection covered 1366px desktop, 390px and 320px mobile. At 390px and 320px the document scroll width equals its client width (375px and 305px, including browser scrollbar behavior).
+- Keyboard project-story expansion, research controls, email-copy success feedback, appearance persistence, and content with JavaScript disabled were checked. Script execution and browser emulation were restored after testing. No console warnings or errors observed in the final preview.
+- Review images: preview-clean-desktop.jpg and preview-clean-mobile.jpg, saved outside the repository in the task visualization folder.
+
+This revision is local and awaits the owner's visual approval before commit/push. No public deployment, external profile availability, email delivery, screen-reader session, or production performance score is claimed.
+
+## 27 October 2026: typography refinement
+
+- Replaced the earlier local font pairing with Google Outfit throughout the name, section headings, project titles, body text, and controls. Increased reading sizes and eased tight letter spacing.
+- Production build and artifact verification pass. The rendered interface uses the Google Outfit stylesheet.
+- Visually checked 1366px desktop, 390px mobile, 320px mobile, and an expanded project story. Document scroll width equals client width at all three sizes. Main reading text is 15px on desktop and 14px on mobile. No console warnings or errors observed.
+- Updated review images are preview-typography-desktop.jpg and preview-typography-mobile.jpg in the task visualization folder outside the repository.
+
+Typography changes remain local for the owner's review. Nothing has been committed or pushed.

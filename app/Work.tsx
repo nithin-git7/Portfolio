@@ -1,36 +1,36 @@
 import { useId } from 'react';
+import { ArrowUpRight, Plus } from 'lucide-react';
+import './work.css';
 
 const projects = [
   {
     name: 'Intelligent Business Analytics & Automation Suite',
     summary: 'One Streamlit application for customer churn prediction, sentiment analysis, and image classification.',
-    tools: 'Streamlit / Random Forest / DistilBERT / CLIP',
+    tools: ['Streamlit', 'Random Forest', 'DistilBERT', 'CLIP'],
     question: 'How can different kinds of business data become useful outputs in one application?',
     approach: 'The project brings three model workflows together: Random Forest for churn prediction, DistilBERT for sentiment analysis, and CLIP for zero-shot image classification.',
     outcome: 'The documented deliverable is a unified dashboard combining predictive analytics, language, and vision.',
     evaluation: 'Each workflow needs its own evaluation. A classification score, sentiment result, and image-label match answer different questions and should not be combined into one headline accuracy.',
     limitation: 'A reproducible evaluation report and a breakdown of individual contributions are not published here yet.',
-    features: ['Customer churn prediction', 'Text sentiment analysis', 'Zero-shot image classification'],
   },
   {
     name: 'MediAI',
     summary: 'A college project combining tabular-data models and medical-image classification across four diseases.',
-    tools: 'TensorFlow / Keras / scikit-learn / Streamlit / MongoDB / SQL',
+    tools: ['TensorFlow', 'Keras', 'scikit-learn', 'Streamlit', 'MongoDB', 'SQL'],
     question: 'How can several screening-model workflows share an interface while keeping their inputs and outputs distinct?',
     approach: 'Random Forest and Logistic Regression handle diabetes and kidney-disease datasets. Convolutional neural networks handle image classification, with Streamlit connecting the workflows.',
     outcome: 'The documented application includes authentication, database support, and PDF reporting alongside its model workflows.',
     evaluation: 'Tabular and image models need separate test sets and reports. The same patient or duplicate image should not appear in both training and evaluation data.',
     limitation: 'This is an academic prototype, not a clinical diagnostic tool. Its results are not presented as evidence of clinical readiness.',
-    features: ['Tabular and image models', 'A shared Streamlit interface', 'Database support and PDF reports'],
   },
 ];
 
 function ProjectDetails({ project }: { project: typeof projects[number] }) {
   const id = useId();
   return (
-    <details className="project-reading">
-      <summary aria-controls={id}>Read the project story<span className="disclosure-hint" aria-hidden="true">Open / close</span></summary>
-      <div id={id}>
+    <details className="work-project-reading">
+      <summary aria-controls={id}>Read the project story <Plus size={17} aria-hidden="true" /></summary>
+      <div id={id} className="work-project-story">
         <h4>The question</h4><p>{project.question}</p>
         <h4>The approach</h4><p>{project.approach}</p>
         <h4>What was built</h4><p>{project.outcome}</p>
@@ -43,30 +43,31 @@ function ProjectDetails({ project }: { project: typeof projects[number] }) {
 
 export function Work() {
   return (
-    <section id="work" aria-labelledby="work-title" className="chapter">
-      <div className="chapter-heading">
-        <span className="eyebrow">College projects</span>
-        <h2 id="work-title">Things I learned by building.</h2>
-        <p>Two projects exploring how models become applications people can use.</p>
+    <section id="work" aria-labelledby="work-title" className="chapter page-width work-section">
+      <div className="work-section-heading">
+        <h2 id="work-title">Selected work.</h2>
+        <p>Two college projects where I explored how machine learning can become software people use.</p>
       </div>
-      <div className="college-projects">
-        {projects.map(project => (
-          <article className="college-project" key={project.name}>
-            <div className="project-overview">
-            <p className="project-context">College project</p>
-            <h3>{project.name}</h3>
-            <p>{project.summary}</p>
+      <div className="work-projects">
+        {projects.map((project, index) => (
+          <article className="work-project" key={project.name}>
+            <span className="work-project-number" aria-hidden="true">0{index + 1}</span>
+            <div className="work-project-intro">
+              <p className="work-project-context">College project</p>
+              <h3>{project.name}</h3>
             </div>
-            <div className="project-content">
-            <ul>{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
-            <p className="project-tools">{project.tools}</p>
-            {project.name === 'MediAI' && <p className="project-note">An academic prototype, not a clinical diagnostic tool.</p>}
-            <ProjectDetails project={project} />
+            <div className="work-project-content">
+              <p className="work-project-summary">{project.summary}</p>
+              <ul className="work-project-tools" aria-label="Technologies used">
+                {project.tools.map(tool => <li key={tool}>{tool}</li>)}
+              </ul>
+              {index === 1 && <p className="work-project-note">An academic prototype, not a clinical diagnostic tool.</p>}
+              <ProjectDetails project={project} />
             </div>
           </article>
         ))}
       </div>
-      <p className="other-project">Also built: <a href="https://clearpath-gilt.vercel.app/" target="_blank" rel="noopener noreferrer">ClearPath Germany</a>, a study-application planning website.</p>
+      <p className="work-other">Also built: <a href="https://clearpath-gilt.vercel.app/" target="_blank" rel="noopener noreferrer">ClearPath Germany <ArrowUpRight size={13} aria-hidden="true" /></a>, a study-application planning website.</p>
     </section>
   );
 }
@@ -77,7 +78,7 @@ export function EngineeringNotes() {
       <h3 id="notes-title">Questions behind the work.</h3>
       <p>Two short notes on how to examine an ML project.</p>
       <details>
-        <summary>A model score needs context</summary>
+        <summary>A model score needs context <Plus size={17} aria-hidden="true" /></summary>
         <div className="note-body">
           <p>A score is useful only when the reader knows the task, the data, and how the test was set up. Churn prediction, sentiment analysis, and image classification need separate evaluation stories.</p>
           <p>A useful report starts with a simple baseline, describes the held-out data, and shows the mistakes as well as the overall result. It also records the code and model version needed to repeat the test.</p>
@@ -85,7 +86,7 @@ export function EngineeringNotes() {
         </div>
       </details>
       <details>
-        <summary>More memory is not always more useful</summary>
+        <summary>More memory is not always more useful <Plus size={17} aria-hidden="true" /></summary>
         <div className="note-body">
           <p>Old context can be relevant, redundant, or wrong. A useful memory system needs to distinguish a lasting goal from a detail that has changed.</p>
           <p>The selective-memory question here is whether a smaller, relevant memory can support a task without carrying forward stale facts. A fair experiment would give the same tasks to no-memory, full-history, and selective-memory baselines.</p>

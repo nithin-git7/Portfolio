@@ -1,6 +1,14 @@
 # Personal website development plan
 
-Updated: 1 October 2026
+Updated: 27 October 2026
+
+## Current design and review status
+
+The current direction is clean and personal: a name-led introduction, natural portrait, restrained green and off-white palette, readable project rows, and a small research notebook. The owner selected strong typography, real work, and minimal decoration. College projects lead; ClearPath remains a single mention. Use factual project stories instead of invented screenshots, performance metrics, or abstract architecture visuals.
+
+Typography refinement: use Google Outfit throughout the interface, with the same face for the name, headings, project titles, body text, and navigation. Reading text is 15px on desktop and 14px on small screens; supporting labels have a clearer size and weight hierarchy. Keep the restrained layout and review the final preview before publishing.
+
+The production build and local preview are ready for owner review. Do not push until the owner approves this preview; that review is explicitly requested. The earlier design notes and verification entries below are historical.
 
 ## Direction
 
@@ -8,7 +16,7 @@ October refinement: preserve the existing paper-and-green identity. Present coll
 
 A personal place that feels away from the internet: a small, welcoming notebook with time to read. Use Nithin's real work, portrait, cricket, books, music, and research. Keep the resume and contact easy to find. Avoid engagement counters, feeds, autoplay, tracking, attention-seeking animation, or invented personal stories.
 
-Design settings: variance 5/10, motion 2/10, density 3/10. Native CSS with a manuscript-inspired Newsreader display face and Manrope body text; existing local fonts. Daylight and lamplight cover the whole page. Personalization is based on the owner's supplied interests, not guessed favorites.
+Design settings: variance 5/10, motion 2/10, density 3/10. Native CSS with Google Outfit throughout. Daylight and lamplight cover the whole page. Personalization is based on the owner's supplied interests, not guessed favorites.
 
 ## Review of the starting site
 

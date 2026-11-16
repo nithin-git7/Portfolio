@@ -1,0 +1,41 @@
+.research-heading { margin-bottom: 34px; }
+.research-heading .eyebrow { margin-bottom: 14px; }
+.research-conversation { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.research-intro h3 { font-family: var(--font-body); font-size: 27px; line-height: 1.35; font-weight: 550; letter-spacing: -.025em; margin: 0 0 19px; }
+.research-intro p { color: var(--muted); font-size: 15px; line-height: 1.85; max-width: 46ch; margin: 0 0 17px; }
+.research-intro .research-next { font-size: 14px; margin-bottom: 0; }
+.memory-concept { min-width: 0; border-left: 1px solid var(--line); padding-left: 32px; }
+.memory-caption { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0 0 17px; }
+.memory-controls { display: flex; gap: 24px; border-bottom: 1px solid var(--line); }
+.memory-controls button { background: transparent; color: var(--muted); border: 0; border-bottom: 2px solid transparent; border-radius: 0; min-height: 44px; padding: 7px 0 11px; margin-bottom: -1px; font-family: inherit; font-size: 13px; font-weight: 550; cursor: pointer; }
+.memory-controls button[aria-pressed=true] { color: var(--accent); border-bottom-color: var(--accent); }
+.memory-controls button:hover { color: var(--accent); }
+.memory-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.memory-explanation { padding-top: 23px; min-height: 185px; }
+.memory-explanation h4 { font-family: inherit; color: var(--ink); font-size: 14px; line-height: 1.6; font-weight: 600; letter-spacing: -.015em; margin: 0 0 13px; }
+.memory-explanation blockquote { color: var(--ink); font-family: var(--font-display); font-size: 25px; line-height: 1.35; letter-spacing: -.015em; margin: 0 0 15px; }
+.memory-explanation p { color: var(--muted); font-size: 15px; line-height: 1.85; max-width: 47ch; margin: 0; }
+.research .engineering-notes { margin-top: 48px; }
+@media (max-width: 900px) {
+  .research-conversation { gap: 36px; }
+  .memory-concept { padding-left: 26px; }
+}
+@media (max-width: 700px) {
+  .research-heading { margin-bottom: 27px; }
+  .research-conversation { grid-template-columns: 1fr; gap: 30px; }
+  .research-intro h3 { font-size: 25px; margin-bottom: 15px; }
+  .research-intro p { max-width: 57ch; }
+  .memory-concept { border-left: 0; padding-left: 0; }
+  .memory-explanation { min-height: 170px; }
+  .research .engineering-notes { margin-top: 32px; }
+}
+@media (max-width: 360px) {
+  .memory-controls { gap: 22px; }
+  .memory-explanation blockquote { font-size: 22px; }
+}
+@media (max-width: 560px) {
+  .research-intro p, .memory-explanation p { font-size: 14px; }
+}
+@media print {
+  .research-conversation { break-inside: avoid; }
+}
