@@ -1,11 +1,18 @@
 import JournalSpreadCarousel, { type JournalSpread } from '../components/ui/journal-spread-carousel';
 
 const spreads: JournalSpread[] = [
-  { label: 'Cricket', paper: '#e9eadf', notes: [{ x: 9, y: 20, w: 36, title: 'Cricket', body: 'Always welcome in a conversation.' }, { x: 58, y: 30, w: 30, title: '01', body: 'Outside work' }] },
-  { label: 'Books', paper: '#eee8dc', notes: [{ x: 9, y: 20, w: 36, title: 'Books', body: 'Beyond technical documentation.' }, { x: 58, y: 30, w: 30, title: '02', body: 'Outside work' }] },
-  { label: 'Music', paper: '#e6e9dc', notes: [{ x: 9, y: 20, w: 36, title: 'Music', body: 'A little time away from software.' }, { x: 58, y: 30, w: 30, title: '03', body: 'Outside work' }] },
-  { label: 'Research', paper: '#eee8dc', notes: [{ x: 9, y: 20, w: 36, title: 'Research', body: 'Questions without an answer yet.' }, { x: 58, y: 30, w: 30, title: '04', body: 'Outside work' }] },
-];
+  { label: 'Cricket', paper: '#e1e8cc', description: 'Always welcome in a conversation.' },
+  { label: 'Books', paper: '#f6dda0', description: 'Beyond technical documentation.' },
+  { label: 'Music', paper: '#efc8bc', description: 'A little time away from software.' },
+  { label: 'Research', paper: '#f4e6d1', description: 'Questions without an answer yet.' },
+].map(({ label, paper, description }) => ({
+  label,
+  paper,
+  notes: [
+    { x: 9, y: 20, w: 40, title: label },
+    { x: 57, y: 44, w: 35, body: description },
+  ],
+}));
 
 export function Personal() {
   return (
@@ -22,7 +29,7 @@ export function Personal() {
         <div><dt>Research</dt><dd>Questions without an answer yet.</dd></div>
       </dl>
       <div className="personal-journal">
-        <JournalSpreadCarousel spreads={spreads} title="A small journal" meta="Four things I enjoy" height="clamp(350px, 45vw, 520px)" />
+        <JournalSpreadCarousel spreads={spreads} title="A small journal" height="clamp(350px, 42vw, 460px)" />
         <p>Drag the pages or use the arrows to explore.</p>
       </div>
     </section>

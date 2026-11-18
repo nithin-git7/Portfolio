@@ -1,11 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type PointerEvent } from 'react';
 import { Work } from './Work';
 import { Research } from './Research';
 import { Personal } from './Personal';
-import { ArrowDown, ArrowUpRight, Download, Moon, Sun, Copy, Check } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Download, MapPin, Moon, Sun, Copy, Check } from 'lucide-react';
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 const email = 'nithinpolavarapu@gmail.com';
+
+// Based on sidiora-labs’ Tilt Card on 21st.dev. The portrait uses CSS transforms.
+function Portrait() {
+  function tilt(event: PointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== 'mouse' || !window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+
+    const frame = event.currentTarget;
+    const { left, top, width, height } = frame.getBoundingClientRect();
+    const pointerX = (event.clientX - left) / width;
+    const pointerY = (event.clientY - top) / height;
+    frame.style.setProperty('--tilt-x', `${(0.5 - pointerY) * 12}deg`);
+    frame.style.setProperty('--tilt-y', `${(pointerX - 0.5) * 12}deg`);
+  }
+
+  function reset(event: PointerEvent<HTMLDivElement>) {
+    event.currentTarget.style.removeProperty('--tilt-x');
+    event.currentTarget.style.removeProperty('--tilt-y');
+  }
+
+  return (
+    <div className="portrait" onPointerMove={tilt} onPointerLeave={reset} onPointerCancel={reset}>
+      <figure className="portrait-card">
+        <img src={asset('profile.webp')} alt="Nithin Polavarapu" width="950" height="1024" fetchPriority="high" draggable={false} />
+        <figcaption><MapPin size={15} aria-hidden="true" /> Vijayawada, India</figcaption>
+      </figure>
+    </div>
+  );
+}
 
 function Appearance() {
   const [night, setNight] = useState(false);
@@ -86,7 +114,7 @@ export function App() {
       <main id="main-content">
         <section className="welcome page-width" id="home" aria-labelledby="welcome-title">
           <div className="welcome-copy">
-            <p className="hello">Hello, I’m</p>
+            <p className="hello eyebrow">Hello, I’m</p>
             <h1 id="welcome-title">Nithin<br />Polavarapu<span>.</span></h1>
             <p className="welcome-role">Machine learning & AI application developer</p>
             <p className="welcome-text">I like taking models beyond a notebook and into software people can use. My work brings together predictive models, language, and computer vision.</p>
@@ -95,10 +123,7 @@ export function App() {
               <a className="resume-link" href={asset('Nithin_Polavarapu_JobResume.pdf')} download>Download resume <Download size={15} /></a>
             </div>
           </div>
-          <figure className="portrait">
-            <img src={asset('profile.webp')} alt="Nithin Polavarapu" width="950" height="1024" fetchPriority="high" />
-            <figcaption>Vijayawada, India</figcaption>
-          </figure>
+          <Portrait />
           <aside className="welcome-note">
             <p>Open to entry-level roles in machine learning and AI application development.</p>
             <a href="#contact">Let’s talk <ArrowUpRight size={15} /></a>

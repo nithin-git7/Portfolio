@@ -1,9 +1,11 @@
 import { useId } from 'react';
-import { ArrowUpRight, Plus } from 'lucide-react';
+import { ArrowUpRight, ChartNoAxesCombined, Plus, ScanLine } from 'lucide-react';
 import './work.css';
 
 const projects = [
   {
+    icon: ChartNoAxesCombined,
+    tone: 'pine',
     name: 'Intelligent Business Analytics & Automation Suite',
     summary: 'One Streamlit application for customer churn prediction, sentiment analysis, and image classification.',
     tools: ['Streamlit', 'Random Forest', 'DistilBERT', 'CLIP'],
@@ -14,6 +16,8 @@ const projects = [
     limitation: 'A reproducible evaluation report and a breakdown of individual contributions are not published here yet.',
   },
   {
+    icon: ScanLine,
+    tone: 'saffron',
     name: 'MediAI',
     summary: 'A college project combining tabular-data models and medical-image classification across four diseases.',
     tools: ['TensorFlow', 'Keras', 'scikit-learn', 'Streamlit', 'MongoDB', 'SQL'],
@@ -50,8 +54,10 @@ export function Work() {
       </div>
       <div className="work-projects">
         {projects.map((project, index) => (
-          <article className="work-project" key={project.name}>
-            <span className="work-project-number" aria-hidden="true">0{index + 1}</span>
+          <article className="work-project" key={project.name} data-tone={project.tone}>
+            <div className="work-project-banner" aria-hidden="true">
+              <project.icon size={38} strokeWidth={1.6} />
+            </div>
             <div className="work-project-intro">
               <p className="work-project-context">College project</p>
               <h3>{project.name}</h3>
@@ -67,7 +73,10 @@ export function Work() {
           </article>
         ))}
       </div>
-      <p className="work-other">Also built: <a href="https://clearpath-gilt.vercel.app/" target="_blank" rel="noopener noreferrer">ClearPath Germany <ArrowUpRight size={13} aria-hidden="true" /></a>, a study-application planning website.</p>
+      <a className="work-other" href="https://clearpath-gilt.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <span><strong>ClearPath Germany</strong><span>A study-application planning website.</span></span>
+        <ArrowUpRight size={21} aria-hidden="true" />
+      </a>
     </section>
   );
 }
